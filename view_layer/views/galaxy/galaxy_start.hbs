@@ -1,0 +1,70 @@
+<h1 class="text-center mb-3">
+    {{ galaxy.name }}
+</h1>
+
+<div class="row">
+    <div class="col-md-6 mx-auto border border-primary rounded py-3">
+        <div class="row mb-3">
+            <div class="col-4 text-right">
+                Type: 
+            </div>
+            <div class="col-8 text-capitalize">
+                {{ galaxy.type }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-4 text-right">
+                Number of Systems: 
+            </div>
+            <div class="col-8">
+                {{ galaxy.number_systems }} 
+                <span aria-label="Theorized to be safe jumps on hyper routes!" 
+                      data-microtip-position="up"
+                      role="tooltip"
+                      class="tooltip-parent border border-info text-info mx-2 mt-1">
+                        ?   
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6 mx-auto">
+        <h4>
+            Save a shard of the hyperjump database in your ship's computer
+            <span aria-label="Due to the database pottentially being overwritten as people generate new galaxies, 
+                                you can save your database as a local file." 
+                    data-microtip-position="up"
+                    role="tooltip"
+                    class="tooltip-parent border border-info text-info mx-2 mt-1">
+                    ?   
+            </span>
+            <button type="button" class="ml-1 mt-1 btn btn-outline-primary" id="download">Download</button>
+        </h4>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-6 mx-auto">
+        <h4>
+            Some of the following systems would be good starting destinations in your travels:
+        </h4>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-6 mx-auto border border-primary rounded pt-4">
+        <div class="row">
+            {{#each starterSystems}}
+                <div class="col-6 mb-4">
+                    <a href="/solar_system/{{ ../galaxy.name }}/{{ this.name }}" class="btn btn-outline-primary w-100">
+                        {{ this.name }}
+                    </a>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+

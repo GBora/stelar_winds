@@ -1,0 +1,135 @@
+<h1 class="text-center mb-5">
+    {{ system.name }}
+</h1>
+
+<div class="row mb-5">
+    <div class="col-md-6 mx-auto border border-primary rounded py-3">
+        <div class="row mb-3">
+            <div class="col-4 text-right">
+                Parent Galaxy 
+            </div>
+            <div class="col-8 text-capitalize">
+                {{ galaxy.name }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 text-right">
+                Coordinates 
+            </div>
+            <div class="col-8 text-capitalize">
+                {{ system.coord.x }}, {{ system.coord.y }}, {{ system.coord.z }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button type="button"
+                            class="btn btn-link collapsed"
+                            data-toggle="collapse"
+                            data-target="#collapseThree">
+                            Navigation 
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p>
+                        We can safely jump to the following systems:
+                    </p>
+                    <div class="neighbour-grid">
+                        {{#each neigbours}}
+                                <a class="btn btn-outline-primary mb-3" href="/solar_system/{{ ../galaxy.name }}/{{ this.name }}">
+                                    {{ this.name }}
+                                </a>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button type="button" 
+                            class="btn btn-link"
+                            data-toggle="collapse"
+                            data-target="#collapseOne">
+                            Sun
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                   <div class="row mx-auto">
+                        <div class="col-4 p-3 justify-content-center align-self-center">
+                            <div class="sun {{ system.star_type }}">
+
+                            </div>
+                        </div>
+                        <div class="col-8 p-3 justify-content-center align-self-center">
+                            <div class="d-inline-block border border-primary rounded p-3">
+                                <p>
+                                    Name: {{ system.name }}
+                                </p>
+                                <p>
+                                    Constelation: {{ constelation }}
+                                </p>
+                                <p>
+                                    Class: {{ system.star_type }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button type="button"
+                            class="btn btn-link collapsed"
+                            data-toggle="collapse"
+                            data-target="#collapseTwo">
+                            Planets
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    {{#each system.objects}}
+                        <div class="row py-3 mb-3 mx-auto">
+                            <div class="col-4 p-3 justify-content-center align-self-center">
+                                <div class="planet {{ this.planet_type }}">
+
+                                </div>
+                            </div>
+                            <div class="col-8 p-3 justify-content-center align-self-center">
+                                <div class="d-inline-block border border-primary rounded p-3">
+                                    <p>
+                                        Name: {{ this.name }}
+                                    </p>
+                                    <p>
+                                        Type: {{ this.planet_type }}
+                                    </p>
+                                    {{#if this.life }}
+                                        <p>
+                                            Sapient Life: Present
+                                        </p>
+                                        <p>
+                                            Enviroment: {{ this.enviroment }}
+                                        </p>
+                                        <p>
+                                            Technology Level: {{ this.civilization }}
+                                        </p>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+</div>

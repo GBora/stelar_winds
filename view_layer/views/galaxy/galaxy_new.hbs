@@ -1,0 +1,35 @@
+<h1 class="text-center mb-5">
+    New Galaxy
+</h1>
+
+<div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-6 mx-auto border border-primary rounded py-3">
+        <form action="/galaxy/new" method="post">
+            <div class="form-group pt-3">
+                <label for="galaxy_type" class="col-sm-6 col-md-4 text-right">Galaxy Type:</label>
+                <select name="galaxy_type"
+                        id="galaxy_type"
+                        class="form-input col-sm-6 col-md-4">
+                    <option value="spiral" selected> Spiral </option>
+                    <option value="elyptical">Elyptical</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="number_systems" class="col-sm-6 col-md-4 text-right">Number of systems:</label>
+                <input class="form-input col-sm-6 col-md-4"
+                    type="number"
+                    name="number_systems"
+                    id="number_systems"
+                    min="10"
+                    value="30"
+                    max="100">
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-outline-primary"
+                        type="submit">
+                    Generate
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

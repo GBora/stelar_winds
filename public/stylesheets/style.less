@@ -1,0 +1,30 @@
+@import 'suns.less';
+@import 'planets.less';
+
+.neighbour-grid {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-gap: 5%;
+}
+
+.tooltip-parent {
+    display: inline-block;
+    font-size: 1rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    line-height: 1.1rem;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.galaxy-list {
+    max-height: 20rem;
+    overflow-y: auto;
+}
+
+nav ul li a.nav-link {
+    color: #002B36 !important;
+}
+

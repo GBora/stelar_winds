@@ -1,0 +1,14 @@
+<h1 class="text-center mb-5">Available Galaxies To Explore</h1>
+
+<div class="row">
+    <div class="col-sm-9 col-md-6 col-lg-3 mx-auto border border-primary rounded py-3 galaxy-list">
+            <a href="/galaxy/new" class="btn btn-outline-primary w-100 mb-3">
+                Explore New Galaxy
+            </a>
+            {{#each galaxies}}
+                <a class="btn btn-outline-primary mb-3 w-100" href="/galaxy/{{ this.name }}">
+                    {{ this.name }} ({{ this.number_systems }} systems)
+                </a>
+            {{/each}}
+    </div>
+</div>
